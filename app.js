@@ -193,7 +193,7 @@ app.get('/confirmation/:token', (req,res,next)=>{
            if(user)
               {
                 console.log("it works")
-              if (bcrypt.compareSync(password,user.password) || user.active == true) 
+              if (bcrypt.compareSync(password,user.password) && (user.active == true)) 
                 {
                             console.log (user);
                             console.log ('tokem generated')
