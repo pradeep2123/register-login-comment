@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Data</title>
+    <style>
+    .form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+body {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}   </style>
+</head>
+<body>
+    <h1>Please fill data in the form below:</h1>
+
+ <div class="form">
+  <form  name="user" method="POST"  action="/signup">  
+      <label>Name:<input type="text" name="name" required></label>
+      
+        <label>email:<input type="email" name="email" onsubmit="validateEmail()"  required ></label>
+
+      <label> password: <input type="password" name="password" onsubmit= "validatepassword()"required > </label>
+        
+      <label>mobileNo<input type ="Number" name="mobileNo"  onsubmit= "validatemobileno()"required >   </label>   
+      
+        <input type="submit" value="Submit">
+    </form> 
+    </div>
+    </body>
+</html>
+
+<script type="text/javascript">
+  function validation(){
+function validateEmail() {
+  var x= document.newuser.email.value;
+  var atposition = x.indexOf("@");
+  var dotposition = x.lastIndexOf(".");
+  if (atposition<1 || dotposition< atposition+2|| dotposition+2>=x.length)
+{
+    alert("please enter valid email" + atposition +"position on dot"+ dotposition); 
+ return false;
+}    
+return true;
+}
+function validatePassword() {
+    var p = document.newuser.password.value,
+        errors = [];
+    if (p.length < 8) {
+        errors.push("Your password must be at least 8 characters"); 
+    }
+    if (p.search(/[a-z]/i) < 0) {
+        errors.push("Your password must contain at least one letter.");
+    }
+    if (p.search(/[0-9]/) < 0) {
+        errors.push("Your password must contain at least one digit."); 
+    }
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }
+    return true;
+}
+
+function validatemobileno()
+{
+  var phone = document.newuser.mobileNo;
+  var phoneno = /^\d{10}$/;
+  if(phone.value.match(phoneno))
+  {
+      return true;
+  }
+  else
+  {
+    window.alert("Not a valid Phone Number");
+     return false;
+  }
+  }
+}
+  </script>
+        
