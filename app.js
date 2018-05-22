@@ -135,7 +135,7 @@ app.post ('/signup',function(req,res,next){
        {
           console.log('token generated bkjhdbasbsk');
           console.log(user);
-          var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user:'k.pradeep', pass: 'K.pra123' } });
+          var transporter = nodemailer.createTransport({ service: 'Sendgrid', auth: { user:'*******', pass: '**********' } }); // use sendgrid account to send ur mails
           var mailOptions = { from: 'noreply-pradee@auth.com', to: s1.email, subject: 'Account Verification Token', text: 'Hello,\n' + 'Please verify your account by clicking the link: \nhttp://localhost:8040/confirmation' + user.token +'\n' };
           transporter.sendMail(mailOptions, function (err)
           {
