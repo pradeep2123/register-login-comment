@@ -3,5 +3,5 @@ This project is about register and login by user and share message to group memb
       After, you can share message to users. 
      
      
-     before starts ensure that you have installed , npm i express mongoose socket.io --save
+     before starts, ensure that you have installed , npm install and required packages
      
